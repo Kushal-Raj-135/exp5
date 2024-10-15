@@ -1,0 +1,155 @@
+exp5
+open git hub
+create na new repositry
+come to git bash
+
+Student@DESKTOP-2SBMDLU MINGW64 ~/kush (master)
+$ git remote -v
+
+Student@DESKTOP-2SBMDLU MINGW64 ~/kush (master)
+$ git remote remove origin
+error: No such remote: 'origin'
+
+Student@DESKTOP-2SBMDLU MINGW64 ~/kush (master)
+$ git init
+Reinitialized existing Git repository in C:/Users/Student/kush/.git/
+
+Student@DESKTOP-2SBMDLU MINGW64 ~/kush (master)
+$ git remote add origin https://github.com/Kushal-Raj-135/exp5.git
+
+Student@DESKTOP-2SBMDLU MINGW64 ~/kush (master)
+$ git remote -v
+origin  https://github.com/Kushal-Raj-135/exp5.git (fetch)
+origin  https://github.com/Kushal-Raj-135/exp5.git (push)
+
+go to git hub
+create a file inside the main branch
+create a branch called feature-branch
+create a file inside this branch then
+
+Student@DESKTOP-2SBMDLU MINGW64 ~/kush (master)
+$ git fetch origin
+remote: Enumerating objects: 6, done.
+remote: Counting objects: 100% (6/6), done.
+remote: Compressing objects: 100% (3/3), done.
+remote: Total 6 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)
+Unpacking objects: 100% (6/6), 1.77 KiB | 7.00 KiB/s, done.
+From https://github.com/Kushal-Raj-135/exp5
+ * [new branch]      feature-branch -> origin/feature-branch
+ * [new branch]      main           -> origin/main
+
+Student@DESKTOP-2SBMDLU MINGW64 ~/kush (master)
+$ git log
+commit f4565782b481566298c5d81cbe9ef4ac2b3e90f7 (HEAD -> master, new_branch_1, feature-branch)
+Author: aiml <kush@bmsit.in>
+Date:   Tue Oct 1 11:36:30 2024 +0530
+
+    this is exp
+
+commit 7b5fd48b23464db05dbd4df41696294372ebf124
+Author: aiml <kush@bmsit.in>
+Date:   Tue Oct 1 11:11:44 2024 +0530
+
+    this is pmg lab
+
+commit d89b473df8f51c73fe70ae1df2f5d20bc886ec0c
+Author: aiml <kush@bmsit.in>
+Date:   Tue Sep 24 11:38:37 2024 +0530
+
+    Its first exp
+
+Student@DESKTOP-2SBMDLU MINGW64 ~/kush (master)
+$ git rebase origin/main
+error: cannot rebase: Your index contains uncommitted changes.
+error: Please commit or stash them.
+
+Student@DESKTOP-2SBMDLU MINGW64 ~/kush (master)
+$ git log --oneline
+f456578 (HEAD -> master, new_branch_1, feature-branch) this is exp
+7b5fd48 this is pmg lab
+d89b473 Its first exp
+
+exp6
+
+Student@DESKTOP-2SBMDLU MINGW64 ~/kush (master)
+$ git checkout -b feature
+Switched to a new branch 'feature'
+
+Student@DESKTOP-2SBMDLU MINGW64 ~/kush (feature)
+$ vi newfile.txt
+
+Student@DESKTOP-2SBMDLU MINGW64 ~/kush (feature)
+$ git add newfile.txt
+warning: in the working copy of 'newfile.txt', LF will be replaced by CRLF the next time Git touches it
+
+Student@DESKTOP-2SBMDLU MINGW64 ~/kush (feature)
+$ git commit -m "file created under feature branch"
+[feature d738068] file created under feature branch
+ 1 file changed, 1 insertion(+)
+ create mode 100644 newfile.txt
+
+Student@DESKTOP-2SBMDLU MINGW64 ~/kush (feature)
+$ git checkout master
+Switched to branch 'master'
+
+Student@DESKTOP-2SBMDLU MINGW64 ~/kush (master)
+$ git merge feature -m "Created file under feature is merging with master"
+Updating 7669911..d738068
+Fast-forward (no commit created; -m option ignored)
+ newfile.txt | 1 +
+ 1 file changed, 1 insertion(+)
+ create mode 100644 newfile.txt
+
+exp7
+
+Student@DESKTOP-2SBMDLU MINGW64 ~/kush (master)
+$ git log --oneline
+d738068 (HEAD -> master, feature) file created under feature branch
+7669911 new file
+9708571 new file created t.txt
+f456578 (new_branch_1, feature-branch) this is exp
+7b5fd48 this is pmg lab
+d89b473 Its first exp
+
+Student@DESKTOP-2SBMDLU MINGW64 ~/kush (master)
+$ git tag v1.0
+
+Student@DESKTOP-2SBMDLU MINGW64 ~/kush (master)
+$ git log --oneline
+d738068 (HEAD -> master, tag: v1.0, feature) file created under feature branch
+7669911 new file
+9708571 new file created t.txt
+f456578 (new_branch_1, feature-branch) this is exp
+7b5fd48 this is pmg lab
+d89b473 Its first exp
+
+Student@DESKTOP-2SBMDLU MINGW64 ~/kush (master)
+$ git tag v1.0^C
+
+Student@DESKTOP-2SBMDLU MINGW64 ~/kush (master)
+$ git tag v1.1 9708571
+
+Student@DESKTOP-2SBMDLU MINGW64 ~/kush (master)
+$ git log --oneline
+d738068 (HEAD -> master, tag: v1.0, feature) file created under feature branch
+7669911 new file
+9708571 (tag: v1.1) new file created t.txt
+f456578 (new_branch_1, feature-branch) this is exp
+7b5fd48 this is pmg lab
+d89b473 Its first exp
+
+Student@DESKTOP-2SBMDLU MINGW64 ~/kush (master)
+$ git tag v2.0 7669911
+
+Student@DESKTOP-2SBMDLU MINGW64 ~/kush (master)
+$ git log --oneline
+d738068 (HEAD -> master, tag: v1.0, feature) file created under feature branch
+7669911 (tag: v2.0) new file
+9708571 (tag: v1.1) new file created t.txt
+f456578 (new_branch_1, feature-branch) this is exp
+7b5fd48 this is pmg lab
+d89b473 Its first exp
+
+
+
+
